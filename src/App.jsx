@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../src/assets/icon.png";
 import { FaInstagram, FaGithub, FaSearch, FaDesktop } from "react-icons/fa"
 import { MdEmail, MdLocationOn, MdWork, MdLanguage, MdDownload } from "react-icons/md"
-import { AiOutlineAppstore, AiOutlineUser, AiOutlineLaptop, AiOutlineCode, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineAppstore, AiOutlineUser, AiOutlineLaptop, AiOutlineCode, AiOutlineMail, AiOutlineSend } from "react-icons/ai";
 import { BiMouse } from "react-icons/bi";
 import profile from "../src/assets/profile.jpeg";
 import profile2 from "../src/assets/profile2.jpeg"
@@ -12,160 +12,169 @@ import code from "../src/assets/code.png";
 import project from "../src/assets/project.jpeg"
 
 function App() {
+
+  const displaySection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div className="w-screen h-full flex flex-col bg-black snap-y snap-mandatory scroll-smooth overflow-y-scroll">
       {/* header */}
-      <div className="flex justify-between border-b border-gray-500/50 py-5 sm:py-7 mx-[1rem] md:mx-[2rem] sm:mx-[5rem] lg:mx-[5rem]">
-        <div className="flex items-center gap-1">
-          <img src={logo} className="h-13 w-13 " />
-          <span className="font-[Source_Code_Pro] text-white text-[14px] sm:text-[16px] hidden lg:flex">Freiden Duliente</span>
-          <span className="font-[Source_Code_Pro] text-white text-[14px] sm:text-[16px] flex lg:hidden ">Freiden</span>
+      <div id="home">
+        <div className="flex justify-between border-b border-gray-500/50 py-5 sm:py-7 mx-[1rem] md:mx-[2rem] sm:mx-[5rem] lg:mx-[5rem]">
+          <div className="flex items-center gap-1">
+            <img src={logo} className="h-13 w-13 " />
+            <span className="font-[Source_Code_Pro] text-white text-[14px] sm:text-[16px] hidden lg:flex">Freiden Duliente</span>
+            <span className="font-[Source_Code_Pro] text-white text-[14px] sm:text-[16px] flex lg:hidden ">Freiden</span>
+          </div>
+
+          <div className="flex justify-center items-center text-white font-[Source_Code_Pro] gap-9">
+            <div className="flex items-center justify-center gap-5">
+              <h2 className="hover:text-cyan-500 sm:text-[16px] text-[12px]">Home</h2>
+              <h2 className="hover:text-cyan-500 sm:text-[16px] text-[12px]">Projects</h2>
+            </div>
+
+            <div className="relative lg:flex hidden">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FaSearch className="text-teal-300" />
+              </div>
+              <input type="text" placeholder='Search...' className="w-48 text-sm pl-9 pr-2 py-2 rounded-sm border-[0.2px] border-white/50 hover:border-teal-500 outline-none"/>
+            </div>
+
+            <div className="flex gap-[3rem] md:flex hidden">
+              <div className="flex items-center justify-center gap-3 group cursor-pointer">
+                <FaInstagram className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-cyan-500 group-active:text-rose-500" />
+                <span className="text-[14px] group-hover:text-cyan-500 group-active:text-cyan-500">Instagram</span>
+              </div>
+              <div className="flex items-center justify-center gap-4 group cursor-pointer">
+                <MdEmail className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-cyan-500" />
+                <span className="text-[14px] group-hover:text-cyan-500 group-hover:text-cyan-500">Email</span>
+              </div>
+              <div className="flex items-center justify-center group gap-4 cursor-pointer">
+                <FaGithub className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-cyan-500 group-hover:text-cyan-500" />
+                <span className="text-[14px] group-hover:text-cyan-500 group-hover:text-cyan-500">Github</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="flex justify-center items-center text-white font-[Source_Code_Pro] gap-9">
-          <div className="flex items-center justify-center gap-5">
-            <h2 className="hover:text-teal-500 sm:text-[16px] text-[12px]">Home</h2>
-            <h2 className="hover:text-teal-500 sm:text-[16px] text-[12px]">Projects</h2>
+        <div className="w-full items-center justify-center mt-9">
+          <div className="w-full flex items-center justify-center">
+            <h2 className="font-[Roboto_Mono] font-semibold text-[30px] md:text-[80px] lg:text-[115px] text-white ">Developer</h2>
           </div>
+          <div className="w-full flex  items-center justify-center md:gap-5 lg:gap-[5rem] pr-5 mt-5">
+            <div className="flex flex-col justify-center items-center fixed top-1/2 md:left-[2rem]  gap-9 lg:left-[5rem] transform md:top-[20.5rem] lg:top-[10rem] bg-gray-500 w-[4rem] h-[25rem] py-2 rounded-full border-[3px] border-gray-500 bg-transparent lg:flex md:hidden">
+              <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 active:bg-gray-200 active:scale-130 transition-transform duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
+                <AiOutlineAppstore onClick={() => displaySection("home")} className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
+              </div>
+              <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
+                <AiOutlineUser onClick={() => displaySection("aboutMe")} className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
+              </div>
+              <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
+                <AiOutlineLaptop onClick={() => displaySection("skills")} className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
+              </div>
+              <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
+                <AiOutlineCode onClick={() => displaySection("works")} className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
+              </div>
+              <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform  active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
+                <AiOutlineMail onClick={() => displaySection("contact")} className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
+              </div>
+            </div>
+            {/* resume */}
+            <div className="flex flex-col justify-center items-center md:gap-1 md:ml-5 lg:gap-5 p-5 md:w-[17rem] lg:w-[24rem] md:h-[25rem] lg:h-[32rem] md:rounded-tl-[6rem] md:rounded-br-[6rem]  lg:rounded-tl-[6rem] lg:rounded-br-[6rem]  border-[3px] border-gray-500/50">
+              <div className="w-full flex flex-col items-center justify-center md:mb-2 lg:mb-5">
+                <img src={profile2} className="h-20 w-20 rounded-full border-[3px] border-teal-500/50 mb-3" />
+                <h2 className="font-[Source_Code_Pro] text-white/70 text-[20px] font-semibold">Freiden Duliente</h2>
+                <p className="font-[Source_Code_Pro] text-white/50 text-[12px] font-semibold">Web Developer</p>
+              </div>
+              <div className="flex flex-col justify-center  md:gap-2 lg:gap-3 md:ml-2 md:mr-2">
+                <div className="flex items-center justify-center gap-3">
+                  <MdEmail className="w-5 h-5 text-teal-600" />
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">freidenduliente02@gmail.com</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MdLocationOn className="w-5 h-5 text-teal-600" />
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Philippines</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MdWork className="w-5 h-5 text-teal-600" />
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Internship</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MdLanguage className="w-5 h-5 text-teal-600" />
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">https://freiden.vercel.app/</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center md:gap-1 lg:gap-5 mt-5">
+                <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:2s]">
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Python</p>
+                </div>
+                <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:3s]">
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Django</p>
+                </div>
+                <div className="flex items-center justify-center w-16 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:4s]">
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">ReactJS</p>
+                </div>
+                <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:5s]">
+                  <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">MySQL</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center mt-5">
+                <div className="lg:w-50 md:w-40 h-5 flex items-center justify-center p-5 gap-3 bg-gray-300/50 rounded-full active:bg-cyan-300/50 hover:bg-cyan-300/50 active:scale-105 hover:scale-105 transition-transform duration-500 ease-in-out cursor-pointer">
+                  <p className="font-[Source_Code_Pro] md:text-[12px] lg:text-[14px] font-semibold">Download CV</p>
+                  <MdDownload className="h-5 w-5" />
+                </div>
+              </div>
+              
+            </div>
 
-          <div className="relative lg:flex hidden">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <FaSearch className="text-teal-300" />
-            </div>
-            <input type="text" placeholder='Search...' className="w-48 text-sm pl-9 pr-2 py-2 rounded-sm border-[0.2px] border-white/50 hover:border-teal-500 outline-none"/>
-          </div>
+            <div className="flex-row md:w-[25rem] lg:w-[44rem]">
+              <div className="flex items-center left-0">
+                <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;h1&gt;</p>
+              </div>
+              <div className="flex-row pl-7 font-[Source_Code_Pro] gap-5">
+                <h2 className="flex lg:text-[50px] md:text-[25px] text-white/60">Hey</h2>
+                <h2 className="flex lg:text-[50px] md:text-[25px] text-white/60">I'm Freiden</h2>
+                <div className="flex items-center justify-between gap-2">
+                  <h2 className="lg:text-[50px] md:text-[25px] text-white/60">Web Developer</h2>
+                  <span className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px] mt-8">&lt;/h1&gt;</span>
+                </div>
+              </div>
 
-          <div className="flex gap-[3rem] md:flex hidden">
-            <div className="flex items-center justify-center gap-3 group cursor-pointer">
-              <FaInstagram className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-rose-500 group-active:text-rose-500" />
-              <span className="text-[14px] group-hover:text-rose-500 group-active:text-rose-500">Instagram</span>
-            </div>
-            <div className="flex items-center justify-center gap-4 group cursor-pointer">
-              <MdEmail className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-rose-500" />
-              <span className="text-[14px] group-hover:text-rose-500 group-hover:text-rose-500">Email</span>
-            </div>
-            <div className="flex items-center justify-center group gap-4 cursor-pointer">
-              <FaGithub className="w-5 h-5 text-teal-300 text-[14px] group-hover:text-rose-500 group-hover:text-rose-500" />
-              <span className="text-[14px] group-hover:text-rose-500 group-hover:text-rose-500">Github</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full items-center justify-center mt-9">
-        <div className="w-full flex items-center justify-center">
-          <h2 className="font-[Roboto_Mono] font-semibold text-[30px] md:text-[80px] lg:text-[115px] text-white ">Developer</h2>
-        </div>
-        <div className="w-full flex  items-center justify-center md:gap-5 lg:gap-[5rem] pr-5 mt-5">
-          <div className="flex flex-col justify-center items-center fixed top-1/2 md:left-[2rem]  gap-9 lg:left-[5rem] transform md:top-[20.5rem] lg:top-[10rem] bg-gray-500 w-[4rem] h-[25rem] py-2 rounded-full border-[3px] border-gray-500 bg-transparent lg:flex md:hidden">
-            <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 active:bg-gray-200 active:scale-130 transition-transform duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
-              <AiOutlineAppstore className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
-            </div>
-            <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
-              <AiOutlineUser className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
-            </div>
-            <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
-              <AiOutlineLaptop className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
-            </div>
-            <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
-              <AiOutlineCode className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
-            </div>
-            <div className="flex items-center justify-center  rounded-full w-10 h-10 hover:bg-gray-200 hover:scale-130 transition-transform  active:bg-gray-200 active:scale-130 duration-500 ease-in-out group hover:rotate-360 active:rotate-360">
-              <AiOutlineMail className="lg:w-9 lg:h-9 md:w-7 md:h-7 rounded-full text-white group-hover:text-black group-active:text-black" />
-            </div>
-          </div>
-          {/* resume */}
-          <div className="flex flex-col justify-center items-center md:gap-1 md:ml-5 lg:gap-5 p-5 md:w-[17rem] lg:w-[24rem] md:h-[25rem] lg:h-[32rem] md:rounded-tl-[6rem] md:rounded-br-[6rem]  lg:rounded-tl-[6rem] lg:rounded-br-[6rem]  border-[3px] border-gray-500/50">
-            <div className="w-full flex flex-col items-center justify-center md:mb-2 lg:mb-5">
-              <img src={profile2} className="h-20 w-20 rounded-full border-[3px] border-teal-500/50 mb-3" />
-              <h2 className="font-[Source_Code_Pro] text-white/70 text-[20px] font-semibold">Freiden Duliente</h2>
-              <p className="font-[Source_Code_Pro] text-white/50 text-[12px] font-semibold">Web Developer</p>
-            </div>
-            <div className="flex flex-col justify-center  md:gap-2 lg:gap-3 md:ml-2 md:mr-2">
-              <div className="flex items-center justify-center gap-3">
-                <MdEmail className="w-5 h-5 text-teal-600" />
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">freidenduliente02@gmail.com</p>
+              <div className="flex-row items-center left-0 md:mt-4 lg:mt-10">
+                <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;p&gt;</p>
+                <p className="font-[Source_Code_Pro] text-sm/5 text-justify text-white/50 pl-7 mt-4 mb-4">
+                  As a fourth-year Information Technology student, my focus is on building practical skills in web development.  
+                    Passionate about technology, I enjoy creating responsive and user-friendly applications.  
+                    During my studies, I have worked on several projects that sharpened both my technical and problem-solving abilities.  
+                    Looking forward, I aim to contribute to innovative projects and continue growing in the tech industry.
+                </p>
+                <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;/p&gt;</p>
               </div>
-              <div className="flex items-center gap-3">
-                <MdLocationOn className="w-5 h-5 text-teal-600" />
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Philippines</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <MdWork className="w-5 h-5 text-teal-600" />
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Internship</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <MdLanguage className="w-5 h-5 text-teal-600" />
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">https://freiden.vercel.app/</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center md:gap-1 lg:gap-5 mt-5">
-              <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:2s]">
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Python</p>
-              </div>
-              <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:3s]">
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">Django</p>
-              </div>
-              <div className="flex items-center justify-center w-16 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:4s]">
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">ReactJS</p>
-              </div>
-              <div className="flex items-center justify-center w-15 h-6 bg-teal-500/50 rounded-full p-2 animate-bounce [animation-duration:5s]">
-                <p className="font-[Source_Code_Pro] text-[12px] text-white/50 font-semibold">MySQL</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center mt-5">
-              <div className="lg:w-50 md:w-40 h-5 flex items-center justify-center p-5 gap-3 bg-gray-300/50 rounded-full active:bg-teal-300/50 hover:bg-teal-300/50 active:scale-105 hover:scale-105 transition-transform duration-500 ease-in-out cursor-pointer">
-                <p className="font-[Source_Code_Pro] md:text-[12px] lg:text-[14px] font-semibold">Download CV</p>
-                <MdDownload className="h-5 w-5" />
-              </div>
-            </div>
             
-          </div>
-
-          <div className="flex-row md:w-[25rem] lg:w-[44rem]">
-            <div className="flex items-center left-0">
-              <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;h1&gt;</p>
             </div>
-            <div className="flex-row pl-7 font-[Source_Code_Pro] gap-5">
-              <h2 className="flex lg:text-[50px] md:text-[25px] text-white/60">Hey</h2>
-              <h2 className="flex lg:text-[50px] md:text-[25px] text-white/60">I'm Freiden</h2>
-              <div className="flex items-center justify-between gap-2">
-                <h2 className="lg:text-[50px] md:text-[25px] text-white/60">Web Developer</h2>
-                <span className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px] mt-8">&lt;/h1&gt;</span>
+
+            <div className="w-[12rem] h-[20rem] flex flex-col justify-center items-center border-[4px] border-gray-500/50 rounded-[5rem] p-5 gap-3">
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">4</h2>
+                <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Programming Languages</p>
               </div>
-            </div>
-
-            <div className="flex-row items-center left-0 md:mt-4 lg:mt-10">
-              <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;p&gt;</p>
-              <p className="font-[Source_Code_Pro] text-sm/5 text-justify text-white/50 pl-7 mt-4 mb-4">
-                 As a fourth-year Information Technology student, my focus is on building practical skills in web development.  
-                  Passionate about technology, I enjoy creating responsive and user-friendly applications.  
-                  During my studies, I have worked on several projects that sharpened both my technical and problem-solving abilities.  
-                  Looking forward, I aim to contribute to innovative projects and continue growing in the tech industry.
-              </p>
-              <p className="text-teal-500/70 font-semibold font-['Courier_New'] text-[14px]">&lt;/p&gt;</p>
-            </div>
-          
-          </div>
-
-          <div className="w-[12rem] h-[20rem] flex flex-col justify-center items-center border-[4px] border-gray-500/50 rounded-[5rem] p-5 gap-3">
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">4</h2>
-              <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Programming Languages</p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">9</h2>
-              <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Development Tools and Platforms</p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">1</h2>
-              <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Experience</p>
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">9</h2>
+                <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Development Tools and Platforms</p>
+              </div>
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="font-[Source_Code_Pro] font-bold text-[45px] text-teal-500/60">1</h2>
+                <p className="font-[Source_Code_Pro] text-white/50 text-[14px] font-semibold">Experience</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="w-full md:full lg:h-screen flex items-center justify-center mt-30 bg-teal-600 bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1102011.jpg&f=1&nofb=1&ipt=c4c50e9f0669d7b22e56cbfd5b0a49da86f7006fc69c973c07c521d64d7f8f56g')] bg-cover bg-center bg-no-repeat">
+      {/* about me */}
+      <div id="aboutMe" className="w-full md:full lg:h-screen flex items-center justify-center mt-30 bg-teal-600 bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1102011.jpg&f=1&nofb=1&ipt=c4c50e9f0669d7b22e56cbfd5b0a49da86f7006fc69c973c07c521d64d7f8f56g')] bg-cover bg-center bg-no-repeat">
         <div className="h-full w-full bg-[rgb(0,0,0,0.5)] flex flex-col items-center gap-[5rem]">
           <div className="flex items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-0 md:mt-5 lg:mt-[5rem]">
@@ -212,7 +221,8 @@ function App() {
         </div>
       </div>
       
-      <div className="w-full md:full lg:h-screen flex items-center justify-center bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1109805.jpg&f=1&nofb=1&ipt=271d1212e9b200bcbac1eddedda2f2372965e6dd32c81c0ce73422e97cf4236e')] bg-cover bg-center bg-no-repeat">
+      {/* skills */}
+      <div id="skills" className="w-full md:full lg:h-screen flex items-center justify-center bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1109805.jpg&f=1&nofb=1&ipt=271d1212e9b200bcbac1eddedda2f2372965e6dd32c81c0ce73422e97cf4236e')] bg-cover bg-center bg-no-repeat">
         <div className="h-full w-full bg-[rgb(0,0,0,0.8)] flex flex-col items-center ">
           <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-0 mt-[5rem]">
@@ -291,7 +301,8 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full md:h-full lg:h-screen flex items-center justify-center bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4615505.png&f=1&nofb=1&ipt=4e7407b9a3bf63e77d5c26780e25515aafd5517bd7f72e563ca5ef79784d560f')] bg-cover bg-no-repeat bg-center">
+      {/* works */}
+      <div id="works" className="w-full md:h-full lg:h-screen flex items-center justify-center bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4615505.png&f=1&nofb=1&ipt=4e7407b9a3bf63e77d5c26780e25515aafd5517bd7f72e563ca5ef79784d560f')] bg-cover bg-no-repeat bg-center">
         <div className="h-full w-full bg-[rgb(0,0,0,0.8)] flex flex-col items-center ">
           <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-0 mt-[5rem]">
@@ -336,6 +347,87 @@ function App() {
           </div>
 
          
+          
+          
+        </div>
+      </div>
+
+      {/* contact */}
+      <div id="contact" className="w-full md:full lg:h-screen flex items-center justify-center bg-black/50 bg-cover bg-center bg-no-repeat">
+        <div className="h-full w-full bg-[rgb(0,0,0,0.8)] flex flex-col items-center gap-5">
+          <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center gap-0 mt-[5rem]">
+              <BiMouse className="h-9 w-12 text-teal-500" />
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-2"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[2px] h-[5px] bg-teal-200 mt-[2px]"></div>
+              <div className="w-[8px] h-[8px] bg-teal-200 mt-[2px] rounded-full"></div>
+            </div>
+            <div className="flex items-center justify-center mt-[2rem]">
+              <h2 className="font-[Source_Code_Pro] text-[50px] text-teal-600 font-bold">Contact</h2>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-3 h-3 rounded-full bg-teal-600"></div>
+              <div className="w-[16rem] h-[2px]  bg-teal-600"></div>
+              <div className="w-3 h-3 rounded-full bg-teal-600"></div>
+            </div>
+            <div className="flex items-center justify-center mt-3">
+              <p className="font-[Source_Code_Pro] text-sm/5 text-white/60">I'm currently available for intership.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center mt-13">
+            <div className="flex items-center justify-center p-4 bg-[#1f1f1f] border-[3px] border-teal-600/90 rounded-br-[1.5rem] rounded-tl-[1.5rem] px-5 w-100">
+              <h2 className="font-[Source_Code_Pro] text-[24px] text-teal-600/90 font-bold">Send Me A Message</h2>
+            </div>
+            
+            <form action="" className="flex flex-col items-center justify-center gap-5 mt-12">
+              <div className="flex items-center justify-between gap-20">
+                <div className="flex flex-col group">
+                  <label htmlFor="" className="text-teal-600 text-left font-[Source_Code_Pro] group-hover:text-cyan-600">Your name</label>
+                  <input type="text" name="" id="" className=" font-[Source_Code_Pro] border-b-2  border-teal-600  w-80 focus:outline-none focus:border-teal-600 focus:hover:border-cyan-600 group-hover:border-cyan-600 focus:ring-0 py-2 px-1 text-white/50" required />
+                </div>
+                <div className="flex flex-col group">
+                  <label htmlFor="" className="text-teal-600 text-left font-[Source_Code_Pro] group-hover:text-cyan-600">Your email</label>
+                  <input type="email" name="" id="" className="font-[Source_Code_Pro] border-b-2  border-teal-600  w-80 focus:outline-none focus:border-teal-600 focus:hover:border-cyan-600 group-hover:border-cyan-600 focus:ring-0 py-2 px-1 text-white/50" required />
+                </div>
+              </div>
+              <div className="flex flex-col justify-start w-180 mt-5 group">
+                <label htmlFor="" className="text-left font-[Source_Code_Pro] text-teal-600 group-hover:text-cyan-600">Your message</label>
+                <input type="text" className="font-[Source_Code_Pro] text-white/50 border-b-2 border-teal-600 w-full focus:outline-none focus:hover:border-cyan-600 group-hover:border-cyan-600 px-1 py-2" required />
+              </div>
+
+              <button className="h-13 w-45 flex items-center justify-center text-black/80 gap-3 font-semibold font-[Source_Code_Pro] bg-teal-600 rounded-full py-2 px-3 mt-10 hover:bg-cyan-600 group hover:scale-105 transition-transform duration-500 ease-in-out">
+                Send Message
+                <AiOutlineSend className="text-black/80 h-5 w-5" />
+              </button>
+            </form>
+          </div>
+          
+          <div className="w-[110rem] h-full flex items-center justify-between border-t border-gray-500/50 mt-7 mx-[5rem]">
+            <div className="flex items-center justify-center">
+              <p className="h-full font-[Source_Code_Pro] text-white/50 text-[14px] font-bold">Alright reserved. &copy;2025</p>
+            </div>
+            <div className="flex items-center justify-between w-80">
+              <p className="h-full font-[Source_Code_Pro] text-white/50 text-[14px] font-bold">Privacy Policy</p>
+              <p className="h-full font-[Source_Code_Pro] text-white/50 text-[14px] font-bold">Terms & Conditions</p>
+            </div>
+            <div className="flex items-center justify-center gap-5">
+              <FaInstagram className="text-white/50 h-5 w-5" />
+              <MdEmail className="text-white/50 h-5 w-5" />
+              <FaGithub className="text-white/50 h-5 w-5" />
+            </div>
+            <div className="flex items-center justify-center">
+              <p className="h-full font-[Source_Code_Pro] text-white/50 text-[14px] font-bold">Designed by: <span className="text-teal-600 underline">{' '}FreidenDuliente</span></p>
+            </div>
+          </div>
+          
           
           
         </div>
